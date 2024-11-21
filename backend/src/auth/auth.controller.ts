@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { SignUpDto } from './dto/signup.dto';
+import { LogInDto } from './dto/login.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -14,7 +15,17 @@ export class AuthController {
   // }
    ///signup
   @Post('signup') //auth/signup
-  async singUp(@Body()signupData: SignUpDto){}
+  async singUp(@Body()signupData: SignUpDto){
+    return this.authService.signup(signupData);
+  }  
+
+
+  //auth/login
+  @Post('login') 
+  async login(@Body()Credential: LogInDto){
+    return this.authService.login(Credential);
+  }  
+
 
 
 //   @Get()
