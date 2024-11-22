@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from './config/config';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 @Module({
@@ -18,7 +19,7 @@ imports: [ConfigModule.forRoot({
             imports: [ ConfigModule ],
               useFactory: async (config) =>({
               secret: config.get('jwt.secret'),
-              signOptions: { expiresIn: config.get('jwt.expiresIn') }, //Optional: Token Expiration
+              // signOptions: { expiresIn: config.get('jwt.expiresIn') }, //Optional: Token Expiration
               }),
               global: true,
               inject: [ConfigService],
