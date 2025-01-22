@@ -7,9 +7,6 @@ import { SignupComponent } from './signup/signup.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-// import { routes } from './app.routes';
-
-
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -21,9 +18,9 @@ export const routes: Routes = [
 @NgModule({
     declarations: [
       AppComponent, 
-      LoginComponent,
-       //SignupComponent
-        ],
+      // LoginComponent, // Removed declaration for standalone component
+      // SignupComponent // Removed declaration for standalone component
+    ],
     imports: [
         BrowserModule, 
         HttpClientModule,
