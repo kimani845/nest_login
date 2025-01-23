@@ -1,0 +1,73 @@
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form (ngSubmit)="onSubmit()">
+        <!-- Name Input -->
+        <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            id="name"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            #nameInput="ngModel"
+            required
+        />
+        <div *ngIf="nameInput.invalid && nameInput.touched" style="color: red;">
+            Name is required
+        </div>
+        </div>
+
+        <!-- Email Input -->
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input
+            id="email"
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            #emailInput="ngModel"
+            required
+        />
+        <div *ngIf="emailInput.invalid && emailInput.touched" style="color: red;">
+            Valid email is required
+        </div>
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            id="password"
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            #passwordInput="ngModel"
+            required
+            minlength="6"
+        />
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" style="color: red;">
+            Password must be at least 6 characters
+        </div>
+        </div>
+    
+        <!-- Confirm Password Input -->
+        <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+            id="confirmPassword"
+            type="password"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            required
+        />
+        <div *ngIf="password !== confirmPassword && confirmPassword" style="color: red;">
+            Passwords do not match
+        </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" [disabled]="!name || !email || !password || !confirmPassword">
+        Sign Up
+        </button>
+    </form>
+    </div>
